@@ -56,6 +56,7 @@ public class WebSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(
                         request -> request
+                                .requestMatchers("/actuator/prometheus/**").permitAll()
                                 .requestMatchers("/health/healthChecker").permitAll()
                                 .requestMatchers("/api/location/**").hasAuthority(RolePermissionsConstants.PERMISSION_LOCATION_SERVICE)
                                 .anyRequest().authenticated()
