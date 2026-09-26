@@ -31,7 +31,7 @@ public class WebSecurityConfig implements WebMvcConfigurer {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/health/healthCheck").permitAll()
-                        .requestMatchers("/api/draft/**").hasRole("pixelhire-location-service-permission")
+                        .requestMatchers("/api/location/**").hasRole("pixelhire-location-service-permission")
                         .anyRequest().denyAll()
                 )
                 .sessionManagement(ses ->
